@@ -2,7 +2,7 @@ import { MaxUint256 } from '@ethersproject/constants';
 import { JsonRpcProvider } from '@ethersproject/providers';
 import {
   PERMIT2_ADDRESS,
-} from '@uniswap/universal-router-sdk';
+} from '../util/addresses';
 import axios from 'axios';
 import { BigNumber } from 'ethers/lib/ethers';
 

@@ -144,14 +144,14 @@ export const USDT_GÖRLI = new Token(
 );
 export const WBTC_GÖRLI = new Token(
   ChainId.GÖRLI,
-  '0xa0a5ad2296b38bd3e3eb59aaeaf1589e8d9a29a9',
+  '0x05a3d9b3c4936aae4000a811942748ad83a7d6e9',
   8,
   'WBTC',
   'Wrapped BTC'
 );
 export const DAI_GÖRLI = new Token(
   ChainId.GÖRLI,
-  '0x3b19a8faa70d2db7bdd9a3ff4c4fd4b116b41d3f',
+  '0x11fe4b6ae13d2a6055c8d9cf65c55bac32b5d844',
   18,
   'DAI',
   'Dai Stablecoin'

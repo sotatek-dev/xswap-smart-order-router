@@ -46,9 +46,9 @@ export const printV2SubgraphPool = (s: V2SubgraphPool) =>
 
 const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]:
-    'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
+    'https://api.studio.thegraph.com/proxy/40341/xswap/v0.0.6',
   [ChainId.RINKEBY]:
-    'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-rinkeby',
+    'https://api.studio.thegraph.com/proxy/40341/xswap/v0.0.6',
   [ChainId.OPTIMISM]:
     'https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis',
   [ChainId.ARBITRUM_ONE]:
@@ -58,7 +58,7 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
   [ChainId.CELO]:
     'https://api.thegraph.com/subgraphs/name/jesse-sawa/uniswap-celo',
   [ChainId.GÖRLI]:
-    'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-gorli',
+    'https://api.studio.thegraph.com/proxy/40341/xswap/v0.0.6',
   [ChainId.BSC]:
     'https://api.thegraph.com/subgraphs/name/ilyamk/uniswap-v3---bnb-chain',
 };
@@ -131,10 +131,9 @@ export class V3SubgraphProvider implements IV3SubgraphProvider {
     let pools: RawV3SubgraphPool[] = [];
 
     log.info(
-      `Getting V3 pools from the subgraph with page size ${PAGE_SIZE}${
-        providerConfig?.blockNumber
-          ? ` as of block ${providerConfig?.blockNumber}`
-          : ''
+      `Getting V3 pools from the subgraph with page size ${PAGE_SIZE}${providerConfig?.blockNumber
+        ? ` as of block ${providerConfig?.blockNumber}`
+        : ''
       }.`
     );
 
