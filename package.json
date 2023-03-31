@@ -10,6 +10,7 @@
     "url": "https://github.com/sotatek-dev/xswap-smart-order-router.git"
   },
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "license": "GPL",
