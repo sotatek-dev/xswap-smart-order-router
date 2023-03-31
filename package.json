@@ -1,19 +1,22 @@
 {
-  "name": "@xswap/smart-order-router",
+  "name": "@xswap-v3/smart-order-router",
   "version": "0.0.1",
-  "description": "XSWAP Smart Order Router",
+  "description": "Xswap V3 Smart Order Router",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Uniswap/smart-order-router.git"
+    "url": "https://github.com/sotatek-dev/xswap-smart-order-router.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "license": "GPL",
-  "keywords": [],
+  "keywords": [
+    "xswap",
+    "xinfin"
+  ],
   "scripts": {
     "compile-v3-types": "npx typechain --target ethers-v5 --out-dir src/types/v3 './node_modules/@uniswap/?(v3-core|v3-periphery)/artifacts/contracts/**/*.json'",
     "compile-v2-types": "npx typechain --target ethers-v5 --out-dir src/types/v2 './node_modules/@uniswap/?(v2-core|v2-periphery)/build/*UniswapV2*.json'",
