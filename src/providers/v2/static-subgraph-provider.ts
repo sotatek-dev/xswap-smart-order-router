@@ -26,6 +26,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC_MAINNET,
     USDT_MAINNET,
     WBTC_MAINNET,
+    // XDC_MAINNET,
   ],
   [ChainId.ROPSTEN]: [WRAPPED_NATIVE_CURRENCY[ChainId.ROPSTEN]!],
   [ChainId.RINKEBY]: [
@@ -49,6 +50,8 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.GNOSIS]: [],
   [ChainId.MOONBEAM]: [],
   [ChainId.BSC]: [],
+  [ChainId.XDC]: [],
+  [ChainId.XDC_APOTHEM]: [],
 };
 
 /**
@@ -64,7 +67,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
  * @class StaticV2SubgraphProvider
  */
 export class StaticV2SubgraphProvider implements IV2SubgraphProvider {
-  constructor(private chainId: ChainId) {}
+  constructor(private chainId: ChainId) { }
 
   public async getPools(
     tokenIn?: Token,

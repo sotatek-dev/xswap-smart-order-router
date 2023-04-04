@@ -1,34 +1,34 @@
 import { Token } from '@uniswap/sdk-core';
 import { ChainId, NETWORKS_WITH_SAME_UNISWAP_ADDRESSES } from './chains';
-const FACTORY_ADDRESS = '0x5cC60dd4f07206a7994885572237d2467acbB5C2';
+const FACTORY_ADDRESS = '0x365b480daaa48c9bc20550de2820a6bf1d0ab813';
 
 export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   ...constructSameAddressMap(FACTORY_ADDRESS),
 };
 
 export const QUOTER_V2_ADDRESSES: AddressMap = {
-  ...constructSameAddressMap('0xeF53145eAA955F0b7749a80315De815e383540FB'),
+  ...constructSameAddressMap('0xf67728b7f2b7a9a28fb919e4e7872831fcd30387'),
 };
 
 export const MIXED_ROUTE_QUOTER_V1_ADDRESSES: AddressMap = {
-  ...constructSameAddressMap('0x801FC6256c84cABC48a1b4Df845eB8D5178b69a7')
+  ...constructSameAddressMap('0x0be4a2d64e970171c15068f2a40449d221f31880')
 };
 
 export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
-  ...constructSameAddressMap('0xb9137A4295f27d8c7F4aF425EF51Db71aDe85dc9')
+  ...constructSameAddressMap('0xee10a4e19efe13ed540337c75799542fba421951')
 };
 
 export const SWAP_ROUTER_02_ADDRESSES = (chainId: number) => {
   console.log(chainId)
-  return '0xeA9dd540533463bDfdCf659b44344cF189C9B7e7';
+  return '0x2ac9f59fbc5a366c867e78715c4cfae7aaadeaee';
 };
 
 export const OVM_GASPRICE_ADDRESS = '0x420000000000000000000000000000000000000F';
 export const ARB_GASINFO_ADDRESS = '0x000000000000000000000000000000000000006C';
-export const TICK_LENS_ADDRESS = '0xF82Ff20aD77C9F97A996AE9235234D7CCA8f658C';
-export const NONFUNGIBLE_POSITION_MANAGER_ADDRESS = '0x4b722F4a38F97E4078260DE0C47F34Ae0c404DbF';
-export const V3_MIGRATOR_ADDRESS = '0x0C5f9A18eaf1d6E52789B5FbF397e71969D0B350';
-export const MULTICALL2_ADDRESS = '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696';
+export const TICK_LENS_ADDRESS = '0xc4bad52c1689cfae8453f1a82389b88c313ed5d1';
+export const NONFUNGIBLE_POSITION_MANAGER_ADDRESS = '0xae95b46a332ef5bf52d2df79e2196aaf98810e78';
+export const V3_MIGRATOR_ADDRESS = '0xbaccf53c0223f50e6a0b1d6c4264772cbbbd5253';
+// export const MULTICALL2_ADDRESS = '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696';
 
 export type AddressMap = { [chainId: number]: string };
 
@@ -56,6 +56,8 @@ export const WETH9: {
     | ChainId.GNOSIS
     | ChainId.MOONBEAM
     | ChainId.BSC
+    | ChainId.XDC
+    | ChainId.XDC_APOTHEM
   >]: Token;
 } = {
   [ChainId.MAINNET]: new Token(
@@ -139,14 +141,14 @@ export const WETH9: {
 
 
 export const UR_ADDRESS: AddressMap = {
-  ...constructSameAddressMap('0x27Daf3f78fCdE43E40E4F3F144FEbc856f7352F8'),
+  ...constructSameAddressMap('0xEbbA0A437E680cC8BAb7586De34692B5F80CcBeD'),
 };
 
 export const UNIVERSAL_ROUTER_ADDRESS = (chainId: number) => {
   let res = UR_ADDRESS[chainId];
-  return res ? res : '0x27Daf3f78fCdE43E40E4F3F144FEbc856f7352F8'
+  return res ? res : '0xEbbA0A437E680cC8BAb7586De34692B5F80CcBeD'
 };
 
-export const POOL_INIT_CODE_HASH = "0xc24772465698cf5cb6165a15e3a579b6c0098ef5120815ecda4c0f1f95e02af0";
+export const POOL_INIT_CODE_HASH = "0x5dd58a93fdeafe39e58b1d19292aedf0a05b1a169b309c0d211599ead298fe23";
 
-export const PERMIT2_ADDRESS = "0x000000000022D473030F116dDEE9F6B43aC78BA3";
+export const PERMIT2_ADDRESS = "0x917f73c5166911db561b0f99847a992bd6419411";

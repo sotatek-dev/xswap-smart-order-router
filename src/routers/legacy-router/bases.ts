@@ -65,6 +65,16 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
       USDT_BSC,
       BTC_BSC,
     ],
+    [ChainId.XDC]: [
+      // WRAPPED_NATIVE_CURRENCY[ChainId.XDC]!,
+      // TODO: add stable coin from XDC mainnet
+    ],
+    [ChainId.XDC_APOTHEM]: [
+      WRAPPED_NATIVE_CURRENCY[ChainId.XDC_APOTHEM]!,
+      // DAI_XDC_APOTHEM,
+      // USDC_XDC_APOTHEM,
+      // USDT_XDC_APOTHEM,
+    ],
   };
 };
 

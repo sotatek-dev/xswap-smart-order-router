@@ -20,6 +20,8 @@ export enum ChainId {
   GNOSIS = 100,
   MOONBEAM = 1284,
   BSC = 56,
+  XDC = 50,
+  XDC_APOTHEM = 51,
 }
 
 // WIP: Gnosis, Moonbeam
@@ -40,6 +42,8 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.CELO_ALFAJORES,
   ChainId.CELO,
   ChainId.BSC,
+  ChainId.XDC,
+  ChainId.XDC_APOTHEM,
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -86,6 +90,10 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.GÖRLI;
     case 42:
       return ChainId.KOVAN;
+    case 50:
+      return ChainId.XDC;
+    case 51:
+      return ChainId.XDC_APOTHEM;
     case 56:
       return ChainId.BSC;
     case 10:
@@ -136,6 +144,8 @@ export enum ChainName {
   GNOSIS = 'gnosis-mainnet',
   MOONBEAM = 'moonbeam-mainnet',
   BSC = 'bsc-mainnet',
+  XDC = 'xdc-mainnet',
+  XDC_APOTHEM = 'xdc-apothem',
 }
 
 
@@ -147,6 +157,7 @@ export enum NativeCurrencyName {
   GNOSIS = 'XDAI',
   MOONBEAM = 'GLMR',
   BNB = "BNB",
+  XDC = 'XDC',
 }
 export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
   [ChainId.MAINNET]: [
@@ -220,6 +231,12 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'BNB',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
+  [ChainId.XDC]: ['XDC', 'XDC', '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'],
+  [ChainId.XDC_APOTHEM]: [
+    'XDC',
+    'XDC',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  ],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -241,6 +258,8 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.GNOSIS]: NativeCurrencyName.GNOSIS,
   [ChainId.MOONBEAM]: NativeCurrencyName.MOONBEAM,
   [ChainId.BSC]: NativeCurrencyName.BNB,
+  [ChainId.XDC]: NativeCurrencyName.XDC,
+  [ChainId.XDC_APOTHEM]: NativeCurrencyName.XDC,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -255,6 +274,10 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.GÖRLI;
     case 42:
       return ChainName.KOVAN;
+    case 50:
+      return ChainName.XDC;
+    case 51:
+      return ChainName.XDC_APOTHEM;
     case 56:
       return ChainName.BSC;
     case 10:
@@ -324,6 +347,10 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_CELO_ALFAJORES!;
     case ChainId.BSC:
       return process.env.JSON_RPC_PROVIDER_BSC!;
+    case ChainId.XDC:
+      return 'https://erpc.xinfin.network';
+    case ChainId.XDC_APOTHEM:
+      return 'https://erpc.apothem.network';
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -458,6 +485,15 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'WGLMR',
     'Wrapped GLMR'
   ),
+  // TODO: add token contract address
+  [ChainId.XDC]: new Token(ChainId.XDC, '', 18, 'WXDC', 'Wrapped XDC'),
+  [ChainId.XDC_APOTHEM]: new Token(
+    ChainId.XDC_APOTHEM,
+    '0x2a5c77b016Df1b3b0AE4E79a68F8adF64Ee741ba',
+    18,
+    'WXDC',
+    'Wrapped XDC'
+  ),
 };
 
 function isMatic(
@@ -584,6 +620,30 @@ class MoonbeamNativeCurrency extends NativeCurrency {
   }
 }
 
+function isXdc(chainId: number): chainId is ChainId.XDC | ChainId.XDC_APOTHEM {
+  return chainId === ChainId.XDC_APOTHEM || chainId === ChainId.XDC;
+}
+
+class XDCNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId;
+  }
+
+  get wrapped(): Token {
+    if (!isXdc(this.chainId)) throw new Error('Not XDC');
+    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+    if (nativeCurrency) {
+      return nativeCurrency;
+    }
+    throw new Error(`Does not support this chain ${this.chainId}`);
+  }
+
+  public constructor(chainId: number) {
+    if (!isXdc(chainId)) throw new Error('Not XDC');
+    super(chainId, 18, 'XDC', 'XinFin');
+  }
+}
+
 export class ExtendedEther extends Ether {
   public get wrapped(): Token {
     if (this.chainId in WRAPPED_NATIVE_CURRENCY)
@@ -616,6 +676,8 @@ export function nativeOnChain(chainId: number): NativeCurrency {
     cachedNativeCurrency[chainId] = new MoonbeamNativeCurrency(chainId);
   else if (isBsc(chainId))
     cachedNativeCurrency[chainId] = new BscNativeCurrency(chainId);
+  else if (isXdc(chainId))
+    cachedNativeCurrency[chainId] = new XDCNativeCurrency(chainId);
   else cachedNativeCurrency[chainId] = ExtendedEther.onChain(chainId);
 
   return cachedNativeCurrency[chainId]!;

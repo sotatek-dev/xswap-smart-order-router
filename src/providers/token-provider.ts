@@ -605,6 +605,38 @@ export const WBTC_MOONBEAM = new Token(
   'Wrapped BTC bridged using Multichain'
 );
 
+export const USDT_XDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0xac4cdD44931d4A0Ff6B1Ea9206e02FeaC8EB9a50',
+  6,
+  'USDT',
+  'Tether Token'
+);
+
+export const USDC_XDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0xDF5038D080Ca5bd21c6c90F0b004306a26Af4bA8',
+  18,
+  'USDC',
+  'USDC'
+);
+
+export const DAI_XDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0xE46554Ad93a7046C85f2dA0C20EbD68e41f11b36',
+  18,
+  'DAI',
+  'DAI Stablecoin on XDC testnet'
+);
+
+export const WBTC_XDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0x885c04a08FbE1C6059f407E36c35B165704D1A03',
+  8,
+  'WBTC',
+  'Wrapped BTC'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -735,6 +767,10 @@ export const DAI_ON = (chainId: ChainId): Token => {
       return DAI_MOONBEAM;
     case ChainId.BSC:
       return DAI_BSC;
+    // case ChainId.XDC:
+    //   return USDT_BSC;
+    case ChainId.XDC_APOTHEM:
+      return DAI_XDC_APOTHEM;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
@@ -764,6 +800,10 @@ export const USDT_ON = (chainId: ChainId): Token => {
       return USDT_ARBITRUM_RINKEBY;
     case ChainId.BSC:
       return USDT_BSC;
+    // case ChainId.XDC:
+    //   return USDT_BSC;
+    case ChainId.XDC_APOTHEM:
+      return USDT_XDC_APOTHEM;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
@@ -803,6 +843,10 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_MOONBEAM;
     case ChainId.BSC:
       return USDC_BSC;
+    // case ChainId.XDC:
+    //   return USDT_BSC;
+    case ChainId.XDC_APOTHEM:
+      return USDC_XDC_APOTHEM;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

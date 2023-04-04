@@ -32,6 +32,7 @@ import {
   DAI_RINKEBY_1,
   DAI_RINKEBY_2,
   DAI_ROPSTEN,
+  DAI_XDC_APOTHEM,
   ETH_BSC,
   UNI_ARBITRUM_RINKEBY,
   USDC_ARBITRUM,
@@ -48,6 +49,7 @@ import {
   USDC_POLYGON,
   USDC_RINKEBY,
   USDC_ROPSTEN,
+  USDC_XDC_APOTHEM,
   USDT_ARBITRUM,
   USDT_ARBITRUM_RINKEBY,
   USDT_BSC,
@@ -59,6 +61,7 @@ import {
   USDT_OPTIMISTIC_KOVAN,
   USDT_RINKEBY,
   USDT_ROPSTEN,
+  USDT_XDC_APOTHEM,
   WBTC_ARBITRUM,
   WBTC_GNOSIS,
   WBTC_GÖRLI,
@@ -68,6 +71,7 @@ import {
   WBTC_OPTIMISM,
   WBTC_OPTIMISM_GOERLI,
   WBTC_OPTIMISTIC_KOVAN,
+  WBTC_XDC_APOTHEM,
   WETH_POLYGON,
   WMATIC_POLYGON,
   WMATIC_POLYGON_MUMBAI,
@@ -88,6 +92,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC_MAINNET,
     USDT_MAINNET,
     WBTC_MAINNET,
+    // XDC_MAINNET,
   ],
   [ChainId.ROPSTEN]: [
     WRAPPED_NATIVE_CURRENCY[ChainId.ROPSTEN]!,
@@ -188,6 +193,21 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC_MOONBEAM,
     WBTC_MOONBEAM,
   ],
+  [ChainId.XDC]: [
+    // TODO: add native and stable coin on XDC mainnet
+    // WRAPPED_NATIVE_CURRENCY[ChainId.XDC],
+    // DAI_XDC,
+    // WBTC_XDC,
+    // USDT_XDC,
+    // USDC_XDC,
+  ],
+  [ChainId.XDC_APOTHEM]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.XDC_APOTHEM],
+    DAI_XDC_APOTHEM,
+    USDT_XDC_APOTHEM,
+    WBTC_XDC_APOTHEM,
+    USDC_XDC_APOTHEM,
+  ],
 };
 
 /**
@@ -205,7 +225,7 @@ export class StaticV3SubgraphProvider implements IV3SubgraphProvider {
   constructor(
     private chainId: ChainId,
     private poolProvider: IV3PoolProvider
-  ) {}
+  ) { }
 
   public async getPools(
     tokenIn?: Token,
