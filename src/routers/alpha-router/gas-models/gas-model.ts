@@ -17,7 +17,7 @@ import {
   DAI_RINKEBY_1,
   DAI_RINKEBY_2,
   DAI_ROPSTEN,
-  // DAI_XDC_APOTHEM,
+  DAI_XDC_APOTHEM,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
   USDC_BSC,
@@ -88,7 +88,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.GNOSIS]: [USDC_ETHEREUM_GNOSIS],
   [ChainId.MOONBEAM]: [USDC_MOONBEAM],
   [ChainId.BSC]: [USDT_BSC, USDC_BSC, DAI_BSC],
-  [ChainId.XDC_APOTHEM]: [USDC_XDC_APOTHEM, USDC_XDC_APOTHEM],
+  [ChainId.XDC_APOTHEM]: [USDC_XDC_APOTHEM, DAI_XDC_APOTHEM],
   [ChainId.XDC]: [],
 };
 
