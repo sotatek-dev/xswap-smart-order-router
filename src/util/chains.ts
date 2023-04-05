@@ -76,6 +76,8 @@ export const NETWORKS_WITH_SAME_UNISWAP_ADDRESSES = [
   ChainId.ARBITRUM_RINKEBY,
   ChainId.POLYGON,
   ChainId.POLYGON_MUMBAI,
+  ChainId.XDC,
+  ChainId.XDC_APOTHEM,
 ];
 
 export const ID_TO_CHAIN_ID = (id: number): ChainId => {
@@ -486,7 +488,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'Wrapped GLMR'
   ),
   // TODO: add token contract address
-  [ChainId.XDC]: new Token(ChainId.XDC, '', 18, 'WXDC', 'Wrapped XDC'),
+  [ChainId.XDC]: new Token(ChainId.XDC, '0x2a5c77b016Df1b3b0AE4E79a68F8adF64Ee741ba', 18, 'WXDC', 'Wrapped XDC'),
   [ChainId.XDC_APOTHEM]: new Token(
     ChainId.XDC_APOTHEM,
     '0x2a5c77b016Df1b3b0AE4E79a68F8adF64Ee741ba',

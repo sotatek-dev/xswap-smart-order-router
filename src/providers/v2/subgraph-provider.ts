@@ -44,7 +44,7 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
   [ChainId.GÖRLI]:
     'https://api.studio.thegraph.com/proxy/40341/xswap_v2/v0.0.1',
   [ChainId.XDC]:
-    '',
+    'https://xswap-subgraph.sotatek.works/subgraphs/name/davekaj/uniswap',
   [ChainId.XDC_APOTHEM]:
     'https://xswap-subgraph.sotatek.works/subgraphs/name/davekaj/uniswap',
 };
