@@ -61,9 +61,8 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
     'https://api.studio.thegraph.com/proxy/40341/xswap/v0.0.6',
   [ChainId.BSC]:
     'https://api.thegraph.com/subgraphs/name/ilyamk/uniswap-v3---bnb-chain',
-  // TODO: add subgraph url for chain xdc
-  [ChainId.XDC]: '',
-  [ChainId.XDC_APOTHEM]: 'https://xswap-subgraph.sotatek.works/subgraphs/name/ianlapham/uniswap-v3/graphql',
+  [ChainId.XDC]: 'https://xswap-subgraph.sotatek.works/subgraphs/name/ianlapham/uniswap-v3',
+  [ChainId.XDC_APOTHEM]: 'https://xswap-subgraph.sotatek.works/subgraphs/name/ianlapham/uniswap-v3',
 };
 
 const PAGE_SIZE = 1000; // 1k is max possible query size from subgraph.
