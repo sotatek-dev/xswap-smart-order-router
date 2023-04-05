@@ -637,6 +637,46 @@ export const WBTC_XDC_APOTHEM = new Token(
   'Wrapped BTC'
 );
 
+export const XUSDT_XDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0xD4B5f10D61916Bd6E0860144a91Ac658dE8a1437',
+  6,
+  'xUSDT',
+  'Bridged USDT'
+);
+
+export const XTT_XDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0xcEba702954af16DFa7134B048E1286497302a155',
+  18,
+  'XTT',
+  'XSwap Treasury Token'
+);
+
+export const WXDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0x2a5c77b016Df1b3b0AE4E79a68F8adF64Ee741ba',
+  18,
+  'WXDC',
+  'Wrapped XDC'
+);
+
+export const XSP_XDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0xbC4979e749c28F81F22f95B603B350D9Ab0F172A',
+  18,
+  'XSP',
+  'XSwapProtocol'
+);
+
+export const CGO_XDC_APOTHEM = new Token(
+  ChainId.XDC_APOTHEM,
+  '0xbC4979e749c28F81F22f95B603B350D9Ab0F172A',
+  18,
+  'TCGO',
+  'Comtech Gold'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
