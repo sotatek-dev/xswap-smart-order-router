@@ -43,7 +43,7 @@ import {
   USDT_OPTIMISM,
   USDT_OPTIMISM_GOERLI,
   USDT_OPTIMISTIC_KOVAN,
-  USDT_XDC_APOTHEM,
+  // USDT_XDC_APOTHEM,
   WBTC_ARBITRUM,
   WBTC_GNOSIS,
   WBTC_MAINNET,
@@ -189,7 +189,7 @@ const baseTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.XDC_APOTHEM]: [
     DAI_XDC_APOTHEM,
     USDC_XDC_APOTHEM,
-    USDT_XDC_APOTHEM,
+    // USDT_XDC_APOTHEM,
     WBTC_XDC_APOTHEM
   ],
 };

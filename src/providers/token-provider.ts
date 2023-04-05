@@ -605,13 +605,13 @@ export const WBTC_MOONBEAM = new Token(
   'Wrapped BTC bridged using Multichain'
 );
 
-export const USDT_XDC_APOTHEM = new Token(
-  ChainId.XDC_APOTHEM,
-  '0xac4cdD44931d4A0Ff6B1Ea9206e02FeaC8EB9a50',
-  6,
-  'USDT',
-  'Tether Token'
-);
+// export const USDT_XDC_APOTHEM = new Token(
+//   ChainId.XDC_APOTHEM,
+//   '0xac4cdD44931d4A0Ff6B1Ea9206e02FeaC8EB9a50',
+//   6,
+//   'USDT',
+//   'Tether Token'
+// );
 
 export const USDC_XDC_APOTHEM = new Token(
   ChainId.XDC_APOTHEM,
@@ -802,8 +802,8 @@ export const USDT_ON = (chainId: ChainId): Token => {
       return USDT_BSC;
     // case ChainId.XDC:
     //   return USDT_BSC;
-    case ChainId.XDC_APOTHEM:
-      return USDT_XDC_APOTHEM;
+    // case ChainId.XDC_APOTHEM:
+    //   return USDT_XDC_APOTHEM;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
