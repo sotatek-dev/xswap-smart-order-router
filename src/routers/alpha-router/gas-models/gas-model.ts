@@ -88,7 +88,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.GNOSIS]: [USDC_ETHEREUM_GNOSIS],
   [ChainId.MOONBEAM]: [USDC_MOONBEAM],
   [ChainId.BSC]: [USDT_BSC, USDC_BSC, DAI_BSC],
-  [ChainId.XDC_APOTHEM]: [USDT_XDC_APOTHEM, USDC_XDC_APOTHEM, DAI_XDC_APOTHEM],
+  [ChainId.XDC_APOTHEM]: [DAI_XDC_APOTHEM, USDC_XDC_APOTHEM, USDT_XDC_APOTHEM],
   [ChainId.XDC]: [],
 };
 

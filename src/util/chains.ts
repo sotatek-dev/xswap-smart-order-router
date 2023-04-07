@@ -1,6 +1,5 @@
 import { Currency, Ether, NativeCurrency, Token } from '@uniswap/sdk-core';
 
-
 export enum ChainId {
   MAINNET = 1,
   ROPSTEN = 3,
@@ -53,6 +52,7 @@ export const V2_SUPPORTED = [
   ChainId.GÖRLI,
   ChainId.RINKEBY,
   ChainId.ROPSTEN,
+  ChainId.XDC_APOTHEM,
 ];
 
 export const HAS_L1_FEE = [
@@ -150,7 +150,6 @@ export enum ChainName {
   XDC_APOTHEM = 'xdc-apothem',
 }
 
-
 export enum NativeCurrencyName {
   // Strings match input for CLI
   ETHER = 'ETH',
@@ -158,7 +157,7 @@ export enum NativeCurrencyName {
   CELO = 'CELO',
   GNOSIS = 'XDAI',
   MOONBEAM = 'GLMR',
-  BNB = "BNB",
+  BNB = 'BNB',
   XDC = 'XDC',
 }
 export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
@@ -217,9 +216,7 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'ETHER',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
-  [ChainId.POLYGON]: [
-    'MATIC', '0x0000000000000000000000000000000000001010'
-  ],
+  [ChainId.POLYGON]: ['MATIC', '0x0000000000000000000000000000000000001010'],
   [ChainId.POLYGON_MUMBAI]: [
     'MATIC',
     '0x0000000000000000000000000000000000001010',
@@ -228,16 +225,12 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
   [ChainId.CELO_ALFAJORES]: ['CELO'],
   [ChainId.GNOSIS]: ['XDAI'],
   [ChainId.MOONBEAM]: ['GLMR'],
-  [ChainId.BSC]: [
-    'BNB',
-    'BNB',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
+  [ChainId.BSC]: ['BNB', 'BNB', '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'],
   [ChainId.XDC]: ['XDC', 'XDC', '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'],
   [ChainId.XDC_APOTHEM]: [
     'XDC',
     'XDC',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    '0x0000000000000000000000000000000000001010',
   ],
 };
 
@@ -488,7 +481,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'Wrapped GLMR'
   ),
   // TODO: add token contract address
-  [ChainId.XDC]: new Token(ChainId.XDC, '0x2a5c77b016Df1b3b0AE4E79a68F8adF64Ee741ba', 18, 'WXDC', 'Wrapped XDC'),
+  [ChainId.XDC]: new Token(
+    ChainId.XDC,
+    '0x2a5c77b016Df1b3b0AE4E79a68F8adF64Ee741ba',
+    18,
+    'WXDC',
+    'Wrapped XDC'
+  ),
   [ChainId.XDC_APOTHEM]: new Token(
     ChainId.XDC_APOTHEM,
     '0x2a5c77b016Df1b3b0AE4E79a68F8adF64Ee741ba',

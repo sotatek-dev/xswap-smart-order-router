@@ -6,15 +6,17 @@ import {
   BUSD_BSC,
   DAI_BSC,
   DAI_MAINNET,
+  DAI_XDC_APOTHEM,
   ITokenProvider,
   USDC_BSC,
   USDC_MAINNET,
+  USDC_XDC_APOTHEM,
   USDT_BSC,
   USDT_MAINNET,
+  USDT_XDC_APOTHEM,
   WBTC_MAINNET,
   WMATIC_POLYGON,
   WMATIC_POLYGON_MUMBAI,
-
 } from '../../providers/token-provider';
 import { ChainId, WRAPPED_NATIVE_CURRENCY } from '../../util/chains';
 
@@ -71,9 +73,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     ],
     [ChainId.XDC_APOTHEM]: [
       WRAPPED_NATIVE_CURRENCY[ChainId.XDC_APOTHEM]!,
-      // DAI_XDC_APOTHEM,
-      // USDC_XDC_APOTHEM,
-      // USDT_XDC_APOTHEM,
+      DAI_XDC_APOTHEM,
+      USDC_XDC_APOTHEM,
+      USDT_XDC_APOTHEM,
     ],
   };
 };
