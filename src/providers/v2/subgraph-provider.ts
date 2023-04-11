@@ -46,7 +46,7 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
   [ChainId.XDC]:
     'https://xswap-subgraph.sotatek.works/subgraphs/name/davekaj/uniswap',
   [ChainId.XDC_APOTHEM]:
-    'https://xswap-subgraph.sotatek.works/subgraphs/name/davekaj/uniswap',
+    'https://xswap-subgraph.sotatek.works/subgraphs/name/xswap-v2',
 };
 
 const threshold = 0.025;
