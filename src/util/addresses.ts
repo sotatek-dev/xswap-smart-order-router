@@ -12,7 +12,7 @@ export const QUOTER_V2_ADDRESSES: AddressMap = {
 };
 
 export const MIXED_ROUTE_QUOTER_V1_ADDRESSES: AddressMap = {
-  ...constructSameAddressMap('0x91492ac082d655720fF582e53727702d8B002441'),
+  ...constructSameAddressMap('0x03533670AC06b3a4C2184fb71f6CE9241aE29732'),
 };
 
 export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
@@ -143,12 +143,12 @@ export const WETH9: {
 };
 
 export const UR_ADDRESS: AddressMap = {
-  ...constructSameAddressMap('0xDd0CaF4454EA13592FDD5180F4C1bf41f66a9D43'),
+  ...constructSameAddressMap('0x2C93805A755A5FCaD54666cd3cc780E32260427F'),
 };
 
 export const UNIVERSAL_ROUTER_ADDRESS = (chainId: number) => {
   const res = UR_ADDRESS[chainId];
-  return res ? res : '0xDd0CaF4454EA13592FDD5180F4C1bf41f66a9D43';
+  return res ? res : '0x2C93805A755A5FCaD54666cd3cc780E32260427F';
 };
 
 export const POOL_INIT_CODE_HASH =

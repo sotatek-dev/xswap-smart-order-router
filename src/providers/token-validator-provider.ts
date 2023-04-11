@@ -23,7 +23,7 @@ export interface TokenValidationResults {
   getValidationByToken(token: Token): TokenValidationResult | undefined;
 }
 
-const TOKEN_VALIDATOR_ADDRESS = '0xb5ee1690b7dcc7859771148d0889be838fe108e0';
+const TOKEN_VALIDATOR_ADDRESS = '0x13E9fA07eBf6d019B5be08b3C450FacaA6Dd1AFe';
 const AMOUNT_TO_FLASH_BORROW = '1000';
 const GAS_LIMIT_PER_VALIDATE = 1_000_000;
 
@@ -95,8 +95,7 @@ export class TokenValidatorProvider implements ITokenValidatorProvider {
     }
 
     log.info(
-      `Got token validation results for ${
-        addressesRaw.length - addresses.length
+      `Got token validation results for ${addressesRaw.length - addresses.length
       } tokens from cache. Getting ${addresses.length} on-chain.`
     );
 
