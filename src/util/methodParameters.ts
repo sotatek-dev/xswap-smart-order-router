@@ -8,8 +8,8 @@ import { Currency, TradeType } from '@uniswap/sdk-core';
 import {
   SwapRouter as UniveralRouter,
 } from '@uniswap/universal-router-sdk';
-import { Route as V2RouteRaw } from '@uniswap/v2-sdk';
-import { Route as V3RouteRaw } from '@uniswap/v3-sdk';
+import { Route as V2RouteRaw } from '@xswap-v3/v2-sdk';
+import { Route as V3RouteRaw } from '@xswap-v3/v3-sdk';
 import _ from 'lodash';
 
 import {
