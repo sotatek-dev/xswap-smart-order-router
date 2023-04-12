@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@xswap-v3/router-sdk';
 
 import { MixedRoute, V2Route, V3Route } from '../../../../routers';
 

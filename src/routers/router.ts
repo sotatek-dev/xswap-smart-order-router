@@ -4,7 +4,7 @@ import {
   MixedRouteSDK,
   Protocol,
   Trade,
-} from '@uniswap/router-sdk';
+} from '@xswap-v3/router-sdk';
 import {
   Currency,
   Fraction,
@@ -12,8 +12,8 @@ import {
   Token,
   TradeType,
 } from '@uniswap/sdk-core';
-import { SwapOptions as UniversalRouterSwapOptions } from '@uniswap/universal-router-sdk';
-import { Route as V2RouteRaw } from '@uniswap/v2-sdk';
+import { SwapOptions as UniversalRouterSwapOptions } from '@xswap-v3/universal-router-sdk';
+import { Route as V2RouteRaw } from '@xswap-v3/v2-sdk';
 import {
   Pool,
   Position,
