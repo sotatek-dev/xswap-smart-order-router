@@ -361,7 +361,7 @@ export class OnChainQuoteProvider implements IOnChainQuoteProvider {
     /// Validate that there are no incorrect routes / function combinations
     this.validateRoutes(routes, functionName, useMixedRouteQuoter);
 
-    let multicallChunk = this.batchParams.multicallChunk;
+    let multicallChunk = 100;
     let gasLimitOverride = this.batchParams.gasLimitPerCall;
     const { baseBlockOffset, rollback } = this.blockNumberConfig;
 
